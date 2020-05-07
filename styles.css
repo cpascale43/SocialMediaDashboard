@@ -16,10 +16,17 @@ body {
   background-color: hsl(225, 100%, 98%);
 } */
 
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 2rem;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 1rem;
+  grid-gap: 3rem;
   margin-bottom: 3rem;
 }
 
@@ -44,12 +51,19 @@ p {
 }
 
 .icon {
-  margin-right: 10px;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .number {
   font-weight: 700;
-  font-size: 62px;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.small-number {
+  font-weight: 700;
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -93,4 +107,26 @@ h3 {
       hsl(329, 70%, 58%)
     )
     1;
+}
+
+.page-views {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+h4 {
+  margin-right: 2rem;
 }
