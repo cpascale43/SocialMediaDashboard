@@ -6,21 +6,44 @@
   color: hsl(228, 45%, 44%);
 }
 
+:root {
+  --card: hsl(227, 47%, 96%);
+  --bg-color: hsl(225, 100%, 98%);
+  --bg-color-two: hsl(0, 0%, 100%);
+  --text: hsl(230, 17%, 14%);
+  --h1: hsl(230, 17%, 14%);
+}
+
+[data-theme="dark"] {
+  --card: hsl(228, 28%, 20%);
+  --bg-color:  hsl(232, 19%, 15%);
+  --bg-color-two: hsl(230, 17%, 14%);
+  --text: hsl(0, 0%, 100%);
+  --h1: #fff;
+}
+
 body {
+  height: 100%;
+  background: linear-gradient(180deg, var(--bg-color) 30%, var(--bg-color-two) 0%);
   margin: 2rem;
   font: 12px system-ui;
   font-family: "Inter", sans-serif;
 }
-
-/* .top-background {
-  background-color: hsl(225, 100%, 98%);
-} */
 
 .head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   padding-bottom: 2rem;
+}
+
+h1 {
+  color: var(--h1)
+}
+
+.mode {
+  display: flex;
+  align-items: center;
 }
 
 .grid {
@@ -31,13 +54,13 @@ body {
 }
 
 .grid > div {
-  background: hsl(227, 47%, 96%);
+  background: var(--card);
   padding: 1.5rem;
   border-radius: 0.5rem;
 }
 
 p {
-  color: hsl(230, 17%, 14%);
+  color: var(--text)
 }
 
 .text {
@@ -110,12 +133,7 @@ h3 {
 
 .i {
   border-top: 5px solid;
-  border-image: linear-gradient(
-      45deg,
-      hsl(37, 97%, 70%),
-      hsl(329, 70%, 58%)
-    )
-    1;
+  border-image: linear-gradient(45deg, hsl(37, 97%, 70%), hsl(329, 70%, 58%)) 1;
 }
 
 .page-views {
@@ -140,5 +158,64 @@ h3 {
 h4.views {
   margin: 0;
   padding-bottom: 40%;
-  color: hsl(228, 12%, 44%)
+  color: hsl(228, 12%, 44%);
+}
+
+.switch {
+  position: relative;
+  width: 65px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-image: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  transform: translateX(30px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

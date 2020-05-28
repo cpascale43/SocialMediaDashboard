@@ -22,8 +22,15 @@
           <h1 style="margin-bottom: 0.5rem;">Social Media Dashboard</h1>
           <h3 style="margin-top: 0;">Total Followers: 23,004</h3>
         </div>
-
-        <h4 style="font-size: 14px; color: hsl(228, 12%, 44%);">Dark Mode</h4>
+        <div class="mode">
+          <h4 style="font-size: 14px; color: hsl(228, 12%, 44%);">
+            Dark Mode
+          </h4>
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
       </div>
 
       <div class="grid">
@@ -141,7 +148,7 @@
           <div class="right">
             <img
               class="icon-overview"
-              src="./images/icon-facebook.svg"
+              src="./images/icon-instagram.svg"
               height="20"
               width="20"
             />
@@ -159,7 +166,7 @@
           <div class="right">
             <img
               class="icon-overview"
-              src="./images/icon-facebook.svg"
+              src="./images/icon-instagram.svg"
               height="20"
               width="20"
             />
@@ -177,7 +184,7 @@
           <div class="right">
             <img
               class="icon-overview"
-              src="./images/icon-facebook.svg"
+              src="./images/icon-twitter.svg"
               height="20"
               width="20"
             />
@@ -195,7 +202,7 @@
           <div class="right">
             <img
               class="icon-overview"
-              src="./images/icon-facebook.svg"
+              src="./images/icon-twitter.svg"
               height="20"
               width="20"
             />
@@ -213,7 +220,7 @@
           <div class="right">
             <img
               class="icon-overview"
-              src="./images/icon-facebook.svg"
+              src="./images/icon-youtube.svg"
               height="20"
               width="20"
             />
@@ -231,7 +238,7 @@
           <div class="right">
             <img
               class="icon-overview"
-              src="./images/icon-facebook.svg"
+              src="./images/icon-youtube.svg"
               height="20"
               width="20"
             />
@@ -245,5 +252,21 @@
       <div class="attribution">Coded by <a href="#">Carrie</a>.</div>
     </div>
   </body>
-  <script src="js/script.js"></script>
+  <script>
+    const toggleSwitch = document.querySelector(`input[type="checkbox"]`);
+
+    function switchTheme(e) {
+      console.log(e);
+      if (e.target.checked) {
+        console.log("I AM CHECKED");
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+      }
+    }
+
+    toggleSwitch.addEventListener("change", switchTheme, false);
+  </script>
 </html>
